@@ -14,8 +14,10 @@ public class Ventana extends JFrame {
     JMenuItem mnuSalir=new JMenuItem("Salir");
     JMenuItem mnuUsuarios=new JMenuItem("Usuarios");
     JMenuItem mnuPedidos=new JMenuItem("Pedidos");
+    JMenuItem mnuArticulo=new JMenuItem("Articulo");
     Ventana2 v2=new Ventana2();
     Ventana3 v3=new Ventana3();
+    Ventana4 v4=new Ventana4();
     public Ventana(){
         
         
@@ -34,6 +36,8 @@ public class Ventana extends JFrame {
         mnuUsuarios.addActionListener(o1);
         OyenteModulo2 o2=new OyenteModulo2();
         mnuPedidos.addActionListener(o2);
+        OyenteModulo3 o3=new OyenteModulo3();
+        mnuArticulo.addActionListener(o3);
         OyenteCerrar oCerrar=new OyenteCerrar();
         mnuSalir.addActionListener(oCerrar);
      }
@@ -43,6 +47,11 @@ public class Ventana extends JFrame {
         }
     }
     class OyenteModulo2 implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+           v3.setVisible(true);
+        }
+    }
+    class OyenteModulo3 implements ActionListener{
         public void actionPerformed(ActionEvent e){
            v3.setVisible(true);
         }

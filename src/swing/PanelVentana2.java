@@ -78,19 +78,19 @@ public class PanelVentana2 extends JPanel {
     class OyenteAgregar implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            Usuario art = new Usuario();
+            Usuario usu = new Usuario();
             String nom = txtNombre.getText();
             int pes = Integer.parseInt(txtPeso.getText());
             String sex = txtSexo.getText();
             String apep=txtApepat.getText();
             String apem=txtApemat.getText();
 
-            art.setNombre(nom);
-            art.setPeso(pes);
-            art.setSexo(sex);
-            art.setApepat(apep);
-            art.setApemat(apem);
-            art.save();
+            usu.setNombre(nom);
+            usu.setPeso(pes);
+            usu.setSexo(sex);
+            usu.setApepat(apep);
+            usu.setApemat(apem);
+            usu.save();
             Limpiar();
         }
     }
