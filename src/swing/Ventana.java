@@ -11,13 +11,16 @@ public class Ventana extends JFrame {
     JMenuBar barra=new JMenuBar();
     JMenu mnuArchivo=new JMenu("Archivo");
     JMenu mnuModulos=new JMenu("Modulos");
+    JMenu mnuCreditos=new JMenu("Creditos");
     JMenuItem mnuSalir=new JMenuItem("Salir");
     JMenuItem mnuUsuarios=new JMenuItem("Usuarios");
     JMenuItem mnuPedidos=new JMenuItem("Pedidos");
     JMenuItem mnuArticulo=new JMenuItem("Articulo");
+    JMenuItem mnuAcercaDe=new JMenuItem("Acerca De");
     Ventana2 v2=new Ventana2();
     Ventana3 v3=new Ventana3();
     Ventana4 v4=new Ventana4();
+    Ventana5 v5=new Ventana5();
     public Ventana(){
         
         
@@ -28,9 +31,12 @@ public class Ventana extends JFrame {
         this.add(p);
         barra.add(mnuArchivo);
         barra.add(mnuModulos);
+        barra.add(mnuCreditos);
         mnuModulos.add(mnuUsuarios);
         mnuModulos.add(mnuPedidos);
+        mnuModulos.add(mnuArticulo);
         mnuArchivo.add(mnuSalir);
+        mnuCreditos.add(mnuAcercaDe);
         this.add(barra,BorderLayout.NORTH);
         OyenteModulo1 o1=new OyenteModulo1();
         mnuUsuarios.addActionListener(o1);
@@ -53,7 +59,7 @@ public class Ventana extends JFrame {
     }
     class OyenteModulo3 implements ActionListener{
         public void actionPerformed(ActionEvent e){
-           v3.setVisible(true);
+           v4.setVisible(true);
         }
     }
     class OyenteCerrar implements ActionListener{
