@@ -32,6 +32,8 @@ public class Ventana extends JFrame {
         this.add(barra,BorderLayout.NORTH);
         OyenteModulo1 o1=new OyenteModulo1();
         mnuUsuarios.addActionListener(o1);
+        OyenteModulo2 o2=new OyenteModulo2();
+        mnuPedidos.addActionListener(o2);
         OyenteCerrar oCerrar=new OyenteCerrar();
         mnuSalir.addActionListener(oCerrar);
      }
