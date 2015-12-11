@@ -5,10 +5,17 @@
  */
 package swing;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author tito
  */
-public class PanelVentana {
-    
+public class PanelVentana extends JFrame {
+    public PanelVentana(){
+    this.setSize(500,500);
+       this.setTitle("Menu");
+        this.setVisible(true);
+        this.setLayout(null);
+    }
 }
