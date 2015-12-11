@@ -5,7 +5,7 @@
  */
 package swing;
 
-import Negocio.Articulo;
+import Negocio.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -19,14 +19,16 @@ import javax.swing.JTextField;
  */
 public class PanelVentana2 extends JPanel {
     
-    JLabel lblDescripcion = new JLabel("Descripcion:");
-    JTextField txtDescripcion = new JTextField();
-    JLabel lblNombre = new JLabel("Nombre");
+    JLabel lblNombre = new JLabel("Nombre:");
     JTextField txtNombre = new JTextField();
-    JLabel lblPrecio = new JLabel("Precio");
-    JTextField txtPrecio = new JTextField();
-    JLabel lblId_pedido = new JLabel("id_pedido");
-    JTextField txtId_pedido = new JTextField();
+    JLabel lblPeso = new JLabel("Peso:");
+    JTextField txtPeso = new JTextField();
+    JLabel lblSexo = new JLabel("Sexo:");
+    JTextField txtSexo = new JTextField();
+    JLabel lblApepat = new JLabel("Apepat");
+    JTextField txtApepat = new JTextField();
+    JLabel lblApemat = new JLabel("Apemat");
+    JTextField txtApemat = new JTextField();
     JButton btnAgregar = new JButton("Agregar");
     JButton btnEliminar = new JButton("ELiminar");
     JButton btnEditar = new JButton("Editar");
@@ -34,28 +36,36 @@ public class PanelVentana2 extends JPanel {
     public PanelVentana2() {
      this.setLayout(null);
         lblNombre.setBounds(20, 20, 120, 20);
-        this.add(lblDescripcion);
-        txtDescripcion.setBounds(150, 20, 120, 20);
-        this.add(txtDescripcion);
-        lblNombre.setBounds(20, 50, 120, 20);
         this.add(lblNombre);
-        txtNombre.setBounds(150, 50, 120, 20);
+        txtNombre.setBounds(150, 20, 120, 20);
         this.add(txtNombre);
-        lblPrecio.setBounds(20, 80, 120, 20);
-        this.add(lblPrecio);
-        txtPrecio.setBounds(150, 80, 120, 20);
-        this.add(txtPrecio);
-        txtId_pedido .setBounds(150, 50, 120, 20);
-        this.add(txtId_pedido );
-        lblId_pedido .setBounds(20, 80, 120, 20);
-        this.add(lblId_pedido );
-        btnAgregar.setBounds(20, 110, 120, 20);
+        lblPeso.setBounds(20, 50, 120, 20);
+        this.add(lblPeso);
+        txtPeso.setBounds(150, 50, 120, 20);
+        this.add(txtPeso);
+        lblSexo.setBounds(20, 80, 120, 20);
+        this.add(lblSexo);
+        txtSexo.setBounds(150, 80, 120, 20);
+        this.add(txtSexo);
+        lblApepat.setBounds(20, 110, 120, 20);
+        this.add(lblApepat);
+        txtApepat.setBounds(150, 110, 120, 20);
+        this.add(txtApepat);
+        lblApemat.setBounds(20, 140, 120, 20);
+        this.add(lblApemat);
+        txtApemat.setBounds(150, 140, 120, 20);
+        this.add(txtApemat);
+        
+        
+                
+        
+        btnAgregar.setBounds(20, 170, 120, 20);                
         this.add(btnAgregar);
-        btnLimpiar.setBounds(150, 110, 120, 20);
+        btnLimpiar.setBounds(150, 170, 120, 20);
         this.add(btnLimpiar);
-        btnEliminar.setBounds(280, 110, 120, 20);
+        btnEliminar.setBounds(280, 170, 120, 20);
         this.add(btnEliminar);
-        btnEditar.setBounds(410, 110, 120, 20);
+        btnEditar.setBounds(410, 170, 120, 20);
         this.add(btnEditar);
     }
      class OyenteLimpiar implements ActionListener {
@@ -68,26 +78,29 @@ public class PanelVentana2 extends JPanel {
     class OyenteAgregar implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            Articulo art = new Articulo();
-            String desc = txtDescripcion.getText();
+            Usuario art = new Usuario();
             String nom = txtNombre.getText();
-            int pre = Integer.parseInt(txtPrecio.getText());
-            int id_pedido= Integer.parseInt(txtId_pedido.getText());
+            int pes = Integer.parseInt(txtPeso.getText());
+            String sex = txtSexo.getText();
+            String apep=txtApepat.getText();
+            String apem=txtApemat.getText();
 
-            art.setDescripcion(desc);
             art.setNombre(nom);
-            art.setPrecio(pre);
-            art.setId_pedido(id_pedido);
+            art.setPeso(pes);
+            art.setSexo(sex);
+            art.setApepat(apep);
+            art.setApemat(apem);
             art.save();
             Limpiar();
         }
     }
     
     public void Limpiar() {
-        txtDescripcion.setText("");
         txtNombre.setText("");
-        txtPrecio.setText("");
-        txtId_pedido.setText("");
+        txtPeso.setText("");
+        txtSexo.setText("");
+        txtApepat.setText("");
+        txtApemat.setText("");
     }
       
     }

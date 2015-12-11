@@ -12,13 +12,13 @@ public class Ventana extends JFrame {
     JMenu mnuArchivo=new JMenu("Archivo");
     JMenu mnuModulos=new JMenu("Modulos");
     JMenuItem mnuSalir=new JMenuItem("Salir");
-    JMenuItem mnuCiudad=new JMenuItem("Ciudades");
+    JMenuItem mnuCiudad=new JMenuItem("Usuarios");
     Ventana2 v2=new Ventana2();
     public Ventana(){
         
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("CRUD JAVA SWING");
+        this.setTitle("Menu");
         this.setSize(500, 500);
         this.setVisible(true);
         this.add(p);
@@ -31,7 +31,7 @@ public class Ventana extends JFrame {
         mnuCiudad.addActionListener(o1);
         OyenteCerrar oCerrar=new OyenteCerrar();
         mnuSalir.addActionListener(oCerrar);
-    }
+     }
     class OyenteModulo1 implements ActionListener{
         public void actionPerformed(ActionEvent e){
            v2.setVisible(true);

@@ -5,24 +5,32 @@
  */
 package swing;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+
 
 /**
  *
  * @author tito
  */
-public class PanelVentana extends JFrame {
+public class PanelVentana extends javax.swing.JPanel {
+    
    
     public PanelVentana(){
-    this.setSize(500,500);
-       this.setTitle("Menu");
-        this.setVisible(true);
-        this.setLayout(null);
-      
+        this.setSize(400,280);
+    }
+         
+    public void PanelVentana(Graphics g){
+        Dimension tamanio = getSize();
+        ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/imagenes/casalibertad.jpg"));        
+        g.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);        
+        setOpaque(false);
+        super.paintComponent(g);
+   
         
+      
+    
     }
     
 }
