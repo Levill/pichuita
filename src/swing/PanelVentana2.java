@@ -67,6 +67,10 @@ public class PanelVentana2 extends JPanel {
         this.add(btnEliminar);
         btnEditar.setBounds(410, 170, 120, 20);
         this.add(btnEditar);
+        PanelVentana2.OyenteLimpiar oLimpiar = new PanelVentana2.OyenteLimpiar();
+        btnLimpiar.addActionListener(oLimpiar);
+        PanelVentana2.OyenteAgregar oAgregar = new PanelVentana2.OyenteAgregar();
+        btnAgregar.addActionListener(oAgregar);
     }
      class OyenteLimpiar implements ActionListener {
 
