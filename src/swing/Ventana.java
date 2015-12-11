@@ -19,7 +19,7 @@ public class Ventana extends JFrame {
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("CRUD JAVA SWING");
-        this.setSize(600, 600);
+        this.setSize(500, 500);
         this.setVisible(true);
         this.add(p);
         barra.add(mnuArchivo);

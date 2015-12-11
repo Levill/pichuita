@@ -10,4 +10,5 @@ public class Ventana2 extends JFrame{
         PanelVentana2 p2=new PanelVentana2();
         this.add(p2);
     }
+    
 }

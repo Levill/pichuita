@@ -5,17 +5,24 @@
  */
 package swing;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author tito
  */
 public class PanelVentana extends JFrame {
+   
     public PanelVentana(){
     this.setSize(500,500);
        this.setTitle("Menu");
         this.setVisible(true);
         this.setLayout(null);
+      
+        
     }
+    
 }
