@@ -8,10 +8,14 @@ package swing;
 import Negocio.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,7 +37,20 @@ public class PanelVentana2 extends JPanel {
     JButton btnEliminar = new JButton("ELiminar");
     JButton btnEditar = new JButton("Editar");
     JButton btnLimpiar = new JButton("Limpiar");
-    public PanelVentana2() {
+       JLabel lblId=new JLabel("ID");
+    JTextField txtId=new JTextField();
+    DefaultTableModel modelo=new DefaultTableModel();{
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("PESO");
+        modelo.addColumn("SEXO");
+        modelo.addColumn("APEPAT");
+        modelo.addColumn("APEMAT");
+}
+     JTable tabla=new JTable(modelo);
+     JScrollPane scrollTabla=new JScrollPane(tabla);
+     
+      public PanelVentana2(){
      this.setLayout(null);
         lblNombre.setBounds(20, 20, 120, 20);
         this.add(lblNombre);
@@ -55,10 +72,6 @@ public class PanelVentana2 extends JPanel {
         this.add(lblApemat);
         txtApemat.setBounds(150, 140, 120, 20);
         this.add(txtApemat);
-        
-        
-                
-        
         btnAgregar.setBounds(20, 170, 120, 20);                
         this.add(btnAgregar);
         btnLimpiar.setBounds(150, 170, 120, 20);
@@ -71,6 +84,11 @@ public class PanelVentana2 extends JPanel {
         btnLimpiar.addActionListener(oLimpiar);
         PanelVentana2.OyenteAgregar oAgregar = new PanelVentana2.OyenteAgregar();
         btnAgregar.addActionListener(oAgregar);
+       PanelVentana2.OyenteEliminar oEliminar=new PanelVentana2.OyenteEliminar();
+        btnEliminar.addActionListener(oEliminar);
+        PanelVentana2.OyenteEditar oEditar=new PanelVentana2.OyenteEditar();
+        btnEditar.addActionListener(oEditar);
+        llenarTabla();
     }
      class OyenteLimpiar implements ActionListener {
 
@@ -96,7 +114,62 @@ public class PanelVentana2 extends JPanel {
             usu.setApemat(apem);
             usu.save();
             Limpiar();
+            llenarTabla();
         }
+    }
+         class OyenteEliminar implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Usuario usu=new Usuario();
+            String nom=(txtNombre.getText());
+            usu.setNombre(nom);
+            usu.delete();
+            Limpiar();
+            llenarTabla();
+        }
+    }
+            class OyenteEditar implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Usuario usu=new Usuario();
+            String nom=(txtNombre.getText());
+            int peso=Integer.parseInt(txtPeso.getText());
+            String sexo=txtSexo.getText();
+            String Apepat=txtApepat.getText();
+            String Apemat=txtApemat.getText();
+            usu.setNombre(nom);
+            usu.setPeso(peso);
+            usu.setSexo(sexo);
+            usu.setApepat(Apepat);
+            usu.setApemat(Apemat);
+            usu.update();
+            Limpiar();
+            llenarTabla();
+        }
+            }
+              public void llenarTabla(){
+        
+        modelo.setRowCount(0);
+        Usuario usuario=new Usuario();
+        List<Usuario> lista=usuario.list();
+       
+       Object[] list=new Object[4];
+        for(int i=0;i<lista.size();i++){
+            
+            list[0]=""+lista.get(i).getId_usuario();
+         
+            list[1]=""+lista.get(i).getNombre();
+           
+            list[2]=""+lista.get(i).getPeso();
+           
+            list[3]=""+lista.get(i).getSexo();
+            list[4]=""+lista.get(i).getApepat();
+            list[5]=""+lista.get(i).getApemat();
+            
+            modelo.addRow(list);
+            
+        }
+        
+    }
+    public void buscarTabla(){
     }
     
     public void Limpiar() {
