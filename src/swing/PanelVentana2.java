@@ -5,6 +5,9 @@
  */
 package swing;
 
+import Negocio.Articulo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -54,7 +57,39 @@ public class PanelVentana2 extends JPanel {
         this.add(btnEliminar);
         btnEditar.setBounds(410, 110, 120, 20);
         this.add(btnEditar);
+    }
+     class OyenteLimpiar implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            Limpiar();
+        }
+    }
+
+    class OyenteAgregar implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            Articulo art = new Articulo();
+            String desc = txtDescripcion.getText();
+            String nom = txtNombre.getText();
+            int pre = Integer.parseInt(txtPrecio.getText());
+            int id_pedido= Integer.parseInt(txtId_pedido.getText());
+
+            art.setDescripcion(desc);
+            art.setNombre(nom);
+            art.setPrecio(pre);
+            art.setId_pedido(id_pedido);
+            art.save();
+            Limpiar();
+        }
+    }
+    
+    public void Limpiar() {
+        txtDescripcion.setText("");
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtId_pedido.setText("");
+    }
       
     }
-} 
+
 
