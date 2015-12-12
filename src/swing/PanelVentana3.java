@@ -35,14 +35,14 @@ public class PanelVentana3 extends JPanel {
     JButton btnEditar = new JButton("Editar");
     JButton btnLimpiar = new JButton("Limpiar");   
      JButton btnId_pedido = new JButton("ID");
+     JButton btnBuscar = new JButton("Buscar");
      JTextField txtId_pedido = new JTextField();
       DefaultTableModel modelo=new DefaultTableModel();{
         modelo.addColumn("ID");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("RUT");
-        modelo.addColumn("APELLIDO PATERNO");
-        modelo.addColumn("APELLIDO MATERNO");
-        modelo.addColumn("ID_Mascota");
+        modelo.addColumn("FECHA");
+        modelo.addColumn("CODIGO");
+        modelo.addColumn("ID_USUARIO");
+       
     }
         JTable tabla=new JTable(modelo);
     JScrollPane scrollTabla=new JScrollPane(tabla);
@@ -68,6 +68,8 @@ public class PanelVentana3 extends JPanel {
         this.add(btnEliminar);
         btnEditar.setBounds(410, 110, 120, 20);
         this.add(btnEditar);
+        btnBuscar.setBounds(540,110,120,20);
+        this.add(btnBuscar);
           OyenteLimpiar oLimpiar = new OyenteLimpiar();
         btnLimpiar.addActionListener(oLimpiar);
         OyenteAgregar oAgregar = new OyenteAgregar();
@@ -78,6 +80,7 @@ public class PanelVentana3 extends JPanel {
         btnEditar.addActionListener(oEditar);
         scrollTabla.setBounds(20,210, 640,380);
         this.add(scrollTabla);
+        llenarTabla();
 
      }
 
@@ -133,12 +136,7 @@ public class PanelVentana3 extends JPanel {
     
     }
     
-    public void Limpiar() {
-        txtFecha.setText("");
-        txtCodigo.setText("");
-        txtId_usuario.setText("");
-    }
-
+   
 
 public void llenarTabla(){
         
@@ -159,6 +157,13 @@ public void llenarTabla(){
             
         }
         
+    
+}
+
+ public void Limpiar() {
+        txtFecha.setText("");
+        txtCodigo.setText("");
+        txtId_usuario.setText("");
     }
 }
 

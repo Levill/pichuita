@@ -61,7 +61,7 @@ public class Articulo {
         this.con = con;
     }
     public void save(){
-    con.setEjecutar("insert into Articulos(descripcion,nombre,precio,id_pedido) values('" + this.descripcion + "','" + this.nombre + "','"+ this.precio +"','"+ this.id_pedido + "')");
+    con.setEjecutar("insert into articulos(descripcion,nombre,precio,id_pedido) values('" + this.descripcion + "','" + this.nombre + "','"+ this.precio +"','"+ this.id_pedido + "')");
     }
      public void delete() {
         con.setEjecutar("delete from articulos where id_articulo='" + this.id_articulo + "'");

@@ -7,12 +7,14 @@ package swing;
 
 import Negocio.Pedidos;
 import Negocio.Articulo;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,9 +31,20 @@ public class PanelVentana4 extends JPanel {
     JLabel lblId_pedido = new JLabel("Id_pedido");
     JTextField txtId_pedido = new JTextField();
     JButton btnAgregar = new JButton("Agregar");
+    JButton btnBuscar = new JButton("Buscar");
     JButton btnEliminar = new JButton("ELiminar");
     JButton btnEditar = new JButton("Editar");
     JButton btnLimpiar = new JButton("Limpiar");
+     JTextField txtId_articulo = new JTextField();
+    JLabel lblId_articulo = new JLabel("Id_articulo");
+    DefaultTableModel modelo=new DefaultTableModel();{
+        modelo.addColumn("ID");
+        modelo.addColumn("DESCRIPCION");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("PRECIO");
+        modelo.addColumn("ID_PEDIDO");
+       
+    }
     public PanelVentana4() {
      this.setLayout(null);
         lblDescripcion.setBounds(20, 20, 120, 20);
@@ -61,10 +74,17 @@ public class PanelVentana4 extends JPanel {
         this.add(btnEliminar);
         btnEditar.setBounds(410, 170, 120, 20);
         this.add(btnEditar);
+        btnBuscar.setBounds(540,170,120,20);
+        this.add(btnBuscar);
          PanelVentana4.OyenteLimpiar oLimpiar = new PanelVentana4.OyenteLimpiar();
         btnLimpiar.addActionListener(oLimpiar);
         PanelVentana4.OyenteAgregar oAgregar = new PanelVentana4.OyenteAgregar();
         btnAgregar.addActionListener(oAgregar);
+        OyenteEliminar oEliminar=new OyenteEliminar();
+        btnEliminar.addActionListener(oEliminar);
+        OyenteEditar oEditar=new OyenteEditar();
+        btnEditar.addActionListener(oEditar);
+        llenarTabla();
     }
      class OyenteLimpiar implements ActionListener {
 
@@ -94,8 +114,8 @@ public class PanelVentana4 extends JPanel {
     class OyenteEliminar implements ActionListener{
         public void actionPerformed(ActionEvent e){
             Articulo  art=new Articulo();
-            String id=txtId_pedido.getText();
-            art.setfecha(id);
+            int id=Integer.parseInt(txtId_articulo.getText());
+            art.setId_pedido(id);
             art.delete();
             Limpiar();
             
@@ -119,6 +139,26 @@ public class PanelVentana4 extends JPanel {
         }
     
     }
+       public void llenarTabla(){
+        
+       modelo.setRowCount(0);
+        Articulo articulo=new Articulo();
+        List<Articulo> lista=articulo.list();
+      
+       Object[] list=new Object[6];
+        for(int i=0;i<lista.size();i++){
+           
+            list[0]=""+lista.get(i).getId_articulo();
+            list[1]=""+lista.get(i).getDescripcion();
+            list[2]=""+lista.get(i).getNombre();
+            list[3]=""+lista.get(i).getPrecio();
+            list[4]=""+lista.get(i).getId_pedido();
+         
+            modelo.addRow(list);
+            
+       
+    }
+       }
     
     public void Limpiar() {
         txtDescripcion.setText("");
