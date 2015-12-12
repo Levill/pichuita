@@ -37,7 +37,7 @@ public class PanelVentana2 extends JPanel {
     JButton btnEliminar = new JButton("ELiminar");
     JButton btnEditar = new JButton("Editar");
     JButton btnLimpiar = new JButton("Limpiar");
-       JLabel lblId=new JLabel("ID");
+    JLabel lblId=new JLabel("ID");
     JTextField txtId=new JTextField();
     DefaultTableModel modelo=new DefaultTableModel();{
         modelo.addColumn("ID");
@@ -80,6 +80,10 @@ public class PanelVentana2 extends JPanel {
         this.add(btnEliminar);
         btnEditar.setBounds(410, 170, 120, 20);
         this.add(btnEditar);
+        lblId.setBounds(280, 80, 120, 20);
+        this.add(lblId);
+        txtId.setBounds(410, 80, 120, 20);
+        this.add(txtId);
         scrollTabla.setBounds(20,210, 640,380);
         this.add(scrollTabla);
         PanelVentana2.OyenteLimpiar oLimpiar = new PanelVentana2.OyenteLimpiar();
@@ -174,6 +178,8 @@ public class PanelVentana2 extends JPanel {
         
     }
     public void buscarTabla(){
+        list.setNombre(txtBuscar.getText());  
+        
     }
     
     public void Limpiar() {
