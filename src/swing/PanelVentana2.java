@@ -90,6 +90,8 @@ public class PanelVentana2 extends JPanel {
         btnEliminar.addActionListener(oEliminar);
         PanelVentana2.OyenteEditar oEditar=new PanelVentana2.OyenteEditar();
         btnEditar.addActionListener(oEditar);
+           scrollTabla.setBounds(20,210, 640,380);
+        this.add(scrollTabla);
         llenarTabla();
     }
      class OyenteLimpiar implements ActionListener {

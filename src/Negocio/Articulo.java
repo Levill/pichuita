@@ -74,7 +74,7 @@ public List list(){
         
     
         List<Articulo> lista=new ArrayList<Articulo>();
-        con.setSeleccion("select * from articulo");
+        con.setSeleccion("select * from articulos");
         Articulo art;
         try{
             while(con.getRs().next()){

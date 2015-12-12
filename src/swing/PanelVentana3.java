@@ -123,7 +123,7 @@ public class PanelVentana3 extends JPanel {
             
             
             ped.setfecha(fech);
-            ped.setcodigo(cod);
+            ped.setcodigo(codigo);
             ped.setid_usuario(id);
            
             ped.update();
