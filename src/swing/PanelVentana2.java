@@ -41,7 +41,7 @@ public class PanelVentana2 extends JPanel {
     JLabel lblId=new JLabel("ID");
     JTextField txtId=new JTextField();
     DefaultTableModel modelo=new DefaultTableModel();{
-        modelo.addColumn("ID");
+       //modelo.addColumn("ID");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("PESO");
         modelo.addColumn("SEXO");
@@ -159,29 +159,24 @@ public class PanelVentana2 extends JPanel {
               public void llenarTabla(){
         
         modelo.setRowCount(0);
-        Usuario usuario=new Usuario();
-        List<Usuario> lista=usuario.list();
-       
-       Object[] list=new Object[4];
+        Usuario usu=new Usuario();
+        List<Usuario> lista=usu.list();
+      
+       Object[] list=new Object[5];
         for(int i=0;i<lista.size();i++){
-            
-            list[0]=""+lista.get(i).getId_usuario();
+           
+            list[0]=""+lista.get(i).getNombre();
+            list[1]=""+lista.get(i).getPeso();
+            list[2]=""+lista.get(i).getSexo();
+            list[3]=""+lista.get(i).getApepat();
+            list[4]=""+lista.get(i).getApemat();
          
-            list[1]=""+lista.get(i).getNombre();
-           
-            list[2]=""+lista.get(i).getPeso();
-           
-            list[3]=""+lista.get(i).getSexo();
-            list[4]=""+lista.get(i).getApepat();
-            list[5]=""+lista.get(i).getApemat();
-            
             modelo.addRow(list);
             
-        }
+        
         
     }
-    public void buscarTabla(){
-        list.setNombre(txtBuscar.getText());  
+      
         
     }
     

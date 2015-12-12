@@ -85,7 +85,7 @@ public class Usuario {
     con.setEjecutar("insert into usuarios(nombre,peso,sexo,apepat,apemat) values('" + this.nombre + "','" + this.peso + "','"+ this.sexo +"','"+ this.apepat + "','"+ this.apemat +"')");
     }
     public void delete() {
-        con.setEjecutar("delete from usuarios where id_ususario='" + this.id_usuario + "'");
+        con.setEjecutar("delete from usuarios where id_usuario='" + this.id_usuario + "'");
     }
     public void update() {
         con.setEjecutar("update usuarios set nombre='" + this.nombre + "',peso='" + this.peso + "',sexo='"+this.sexo+"',apepat='" + this.apepat + "',apemat='"+this.apemat+ "' where  id_usuario='" + this.id_usuario + "'");

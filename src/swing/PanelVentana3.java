@@ -141,21 +141,20 @@ public class PanelVentana3 extends JPanel {
 public void llenarTabla(){
         
         modelo.setRowCount(0);
-        Pedidos pedidos=new Pedidos();
-        List<Pedidos> lista=pedidos.list();
+        Pedidos ped=new Pedidos();
+        List<Pedidos> lista=ped.list();
       
-       Object[] list=new Object[6];
+       Object[] list=new Object[3];
         for(int i=0;i<lista.size();i++){
            
-            list[0]=""+lista.get(i).geTid_pedido();
-            list[1]=""+lista.get(i).getfecha();
-            list[2]=""+lista.get(i).getcodigo();
-            list[3]=""+lista.get(i).getid_usuario();
-           
+            list[0]=""+lista.get(i).getfecha();
+            list[1]=""+lista.get(i).getcodigo();
+            list[2]=""+lista.get(i).getid_usuario();
            
             modelo.addRow(list);
+    }
             
-        }
+        
         
     
 }

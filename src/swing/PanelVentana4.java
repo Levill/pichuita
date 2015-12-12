@@ -141,7 +141,7 @@ public class PanelVentana4 extends JPanel {
     }
        public void llenarTabla(){
         
-       modelo.setRowCount(0);
+       /*modelo.setRowCount(0);
         Articulo articulo=new Articulo();
         List<Articulo> lista=articulo.list();
       
@@ -154,10 +154,10 @@ public class PanelVentana4 extends JPanel {
             list[3]=""+lista.get(i).getPrecio();
             list[4]=""+lista.get(i).getId_pedido();
          
-            modelo.addRow(list);
+            modelo.addRow(list);}*/
             
        
-    }
+    
        }
     
     public void Limpiar() {

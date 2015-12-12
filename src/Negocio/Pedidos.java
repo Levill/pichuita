@@ -46,16 +46,33 @@ public class Pedidos {
         this.con = con;
     }
         public void save(){
-    con.setEjecutar("insert into pedidos(fecha,codigo,id_usuario) values('" + this.fecha + "','" + this.codigo + "','"+this.id_usuario+"')");
+    con.setEjecutar("insert into Pedidos(id_pedido,fecha,codigo,id_usuario) values('" + this.id_pedido+ this.fecha + "','" + this.codigo + "','"+this.id_usuario+"')");
     }
      public void delete() {
-        con.setEjecutar("delete from pedidos where id_pedido='" + this.id_pedido + "'");
+        con.setEjecutar("delete from Pedidos where id_pedido='" + this.id_pedido + "'");
     }
      public void update() {
-        con.setEjecutar("update pedidos set fecha='" + this.fecha + "',codigo='" + this.codigo + "',id_usuario='"+this.id_usuario+"' where  id_pedido='" + this.id_pedido + "'");
+        con.setEjecutar("update Pedidos set fecha='" + this.fecha + "',codigo='" + this.codigo + "',id_usuario='"+this.id_usuario+"' where  id_pedido='" + this.id_pedido + "'");
     }
       public List list(){
-        List<Pedidos> lista=new ArrayList<Pedidos>();
+           List<Pedidos> Lista2=new ArrayList<Pedidos>();
+        con.setSeleccion("select * from Pedidos");
+        Pedidos Ped;
+        try{
+            while(con.getRs().next()){
+                Ped=new Pedidos();
+                Ped.setid_pedido(con.getRs().getInt("ID_pedido"));
+                Ped.setfecha(con.getRs().getString("FECHA"));
+                Ped.setcodigo(con.getRs().getInt("Codigo"));
+                Ped.setid_usuario(con.getRs().getInt("Id_usuario"));
+                
+                Lista2.add(Ped);
+            }
+        }catch(Exception ex){
+            System.out.println("ERROr"+ex.getMessage());
+        }
+        return Lista2;
+        /*List<Pedidos> lista=new ArrayList<Pedidos>();
         con.setSeleccion("select * from pedidos");
         Pedidos ped;
         try{
@@ -70,6 +87,6 @@ public class Pedidos {
         }catch(Exception ex){
             System.out.println("ERROr"+ex.getMessage());
         }
-        return lista;
+        return lista;*/
       }
 }

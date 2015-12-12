@@ -13,7 +13,7 @@ public class Conexion {
     ResultSet rs;
     String usuario = "root";
     String clave = "";
-    String url = "jdbc:mysql://localhost:3306/p3_grupo5";
+    String url = "jdbc:mysql://localhost:3306/Pls";
     public Conexion() {
        try {
             Class.forName("org.gjt.mm.mysql.Driver");
