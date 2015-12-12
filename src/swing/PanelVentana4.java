@@ -91,6 +91,34 @@ public class PanelVentana4 extends JPanel {
             Limpiar();
         }
     }
+    class OyenteEliminar implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Articulo  art=new Articulo();
+            String id=txtId_pedido.getText();
+            art.setfecha(id);
+            art.delete();
+            Limpiar();
+            
+        }
+    }
+    class OyenteEditar implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Articulo art=new Articulo();
+            String desc=txtDescripcion.getText();
+            String nom = txtNombre.getText();
+            int pre = Integer.parseInt(txtPrecio.getText());
+            int id = Integer.parseInt(txtId_pedido.getText());
+
+            art.setDescripcion(desc);
+            art.setNombre(nom);
+            art.setPrecio(pre);
+            art.setId_pedido(id);
+            
+            art.save();
+            Limpiar();
+        }
+    
+    }
     
     public void Limpiar() {
         txtDescripcion.setText("");
